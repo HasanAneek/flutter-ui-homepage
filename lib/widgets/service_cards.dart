@@ -13,7 +13,7 @@ class ServiceCards extends StatelessWidget {
         children: [
           ServiceCard(
             imageUrl:
-                'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300&h=200&fit=crop',
+                'https://www.onlinelogomaker.com/blog/wp-content/uploads/2024/06/eec65bd4ab07649c0ae50df011c809d9.jpg',
             rating: 4.5,
             duration: '1 hr',
             category: 'Painting',
@@ -22,12 +22,12 @@ class ServiceCards extends StatelessWidget {
             originalPrice: '\$248',
             providerName: 'Robert Fox',
             providerImage:
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face',
+                'https://www.onlinelogomaker.com/blog/wp-content/uploads/2024/06/eec65bd4ab07649c0ae50df011c809d9.jpg',
           ),
           SizedBox(width: 16),
           ServiceCard(
             imageUrl:
-                'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=300&h=200&fit=crop',
+                'https://www.onlinelogomaker.com/blog/wp-content/uploads/2024/06/eec65bd4ab07649c0ae50df011c809d9.jpg',
             rating: 4.5,
             duration: '1 hr',
             category: 'Painting',
@@ -36,7 +36,7 @@ class ServiceCards extends StatelessWidget {
             originalPrice: '\$248',
             providerName: 'Robert Fox',
             providerImage:
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face',
+                'https://www.onlinelogomaker.com/blog/wp-content/uploads/2024/06/eec65bd4ab07649c0ae50df011c809d9.jpg',
           ),
         ],
       ),
@@ -91,13 +91,11 @@ class ServiceCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                child: Container(
+                child: Image.network(
+                  imageUrl,
                   height: 140,
                   width: double.infinity,
-                  color: Colors.grey[200],
-                  child: Center(
-                    child: Icon(Icons.image, size: 50, color: Colors.grey[400]),
-                  ),
+                  fit: BoxFit.cover,
                 ),
               ),
               Positioned(
@@ -190,12 +188,7 @@ class ServiceCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 12,
-                      backgroundColor: Colors.grey[300],
-                      child: Icon(
-                        Icons.person,
-                        size: 16,
-                        color: Colors.grey[600],
-                      ),
+                      backgroundImage: NetworkImage(providerImage),
                     ),
                     SizedBox(width: 8),
                     Text(
