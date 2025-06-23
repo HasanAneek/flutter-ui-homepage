@@ -7,7 +7,7 @@ class ServiceProviders extends StatelessWidget {
       'profession': 'Painter',
       'rating': 4.5,
       'image':
-          'https://images.unsplash.com/photo-1494790108755-2616b612b05b?w=80&h=80&fit=crop&crop=face',
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
     },
     {
       'name': 'Julian Norman',
@@ -49,8 +49,7 @@ class ServiceProviders extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.grey[300],
-                  child: Icon(Icons.person, size: 30, color: Colors.grey[600]),
+                  backgroundImage: NetworkImage(provider['image'] as String),
                 ),
                 SizedBox(height: 12),
                 Row(
