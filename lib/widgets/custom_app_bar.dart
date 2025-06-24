@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(160.0);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -15,35 +18,37 @@ class CustomAppBar extends StatelessWidget {
       ),
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-
-              // Home address and icons
+              // Top row: Address and Icons
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // Address section
                   Expanded(
                     child: Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.home,
                             color: Colors.white,
                             size: 24,
                           ),
                         ),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
+                              const Text(
                                 'Home',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -53,14 +58,17 @@ class CustomAppBar extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Text(
-                                    '264 Boncycle, FL 32328',
-                                    style: TextStyle(
-                                      color: Colors.white.withOpacity(0.9),
-                                      fontSize: 14,
+                                  Flexible(
+                                    child: Text(
+                                      '264 Boncycle, FL 32328',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 14,
+                                      ),
                                     ),
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.keyboard_arrow_down,
                                     color: Colors.white,
                                     size: 20,
@@ -73,8 +81,7 @@ class CustomAppBar extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  // Icons
+                  // Icons section
                   Row(
                     children: [
                       ClipOval(
@@ -85,7 +92,7 @@ class CustomAppBar extends StatelessWidget {
                             child: Stack(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.all(12),
+                                  padding: const EdgeInsets.all(12),
                                   child: Icon(
                                     Icons.notifications_outlined,
                                     color: Colors.grey[600],
@@ -98,11 +105,11 @@ class CustomAppBar extends StatelessWidget {
                                   child: Container(
                                     width: 20,
                                     height: 20,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.red,
                                       shape: BoxShape.circle,
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         '5',
                                         style: TextStyle(
@@ -119,14 +126,14 @@ class CustomAppBar extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       ClipOval(
                         child: Material(
                           color: Colors.white,
                           child: InkWell(
                             onTap: () {},
                             child: Container(
-                              padding: EdgeInsets.all(12),
+                              padding: const EdgeInsets.all(12),
                               child: Icon(
                                 Icons.shopping_cart_outlined,
                                 color: Colors.grey[600],
@@ -140,9 +147,7 @@ class CustomAppBar extends StatelessWidget {
                   ),
                 ],
               ),
-
-              SizedBox(height: 20),
-
+              const SizedBox(height: 16),
               // Search bar
               Container(
                 decoration: BoxDecoration(
@@ -152,26 +157,26 @@ class CustomAppBar extends StatelessWidget {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
                       blurRadius: 10,
-                      offset: Offset(0, 2),
+                      offset: const Offset(0, 2),
                     ),
                   ],
                 ),
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: Icon(
                         Icons.search,
                         color: Colors.grey[400],
                         size: 24,
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Search services...',
                           hintStyle: TextStyle(
-                            color: Colors.grey[400],
+                            color: Colors.grey,
                             fontSize: 16,
                           ),
                           border: InputBorder.none,
@@ -183,13 +188,13 @@ class CustomAppBar extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(8),
-                      padding: EdgeInsets.all(12),
+                      margin: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Color(0xFF4A90E2),
+                        color: const Color(0xFF4A90E2),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Icon(Icons.tune, color: Colors.white, size: 20),
+                      child: const Icon(Icons.tune, color: Colors.white, size: 20),
                     ),
                   ],
                 ),
